@@ -36,20 +36,24 @@ namespace FilmsUI
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
+            //Поменять на соответствие данных из базы
             if (table.Rows.Count == 1)
             {
                 MessageBox.Show("Принято", "Успешный вход", MessageBoxButtons.OK);
-                MainForm form1 = new MainForm();
+                var form1 = new MainForm();
                 form1.ShowDialog();
-                this.Hide();
+                Close();
             }
             else
                 MessageBox.Show("Неправильный логин или пароль", "Вход не выполнен", MessageBoxButtons.OK);
-
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e) => 
+            Application.Exit();
 
         private void Login_Load(object sender, EventArgs e) {}
 
         private void PasswordTextBox_TextChanged(object sender, EventArgs e) { }
+
     }
 }

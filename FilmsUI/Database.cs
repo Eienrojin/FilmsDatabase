@@ -9,16 +9,37 @@ namespace FilmsUI
 {
     public class Database
     {
-        public static readonly string _connectionString = @$"Data Source=BUGURT\SQLEXPRESS;Initial Catalog=Films;Integrated Security=True";
-        public static readonly SqlConnection _sqlConnection = new SqlConnection(_connectionString);
+        private static string _connectionString { get; set; }
+        public static SqlConnection _sqlConnection { get; set; }
 
-        public void OpenConnection()
+        public static void SetDataSource(string dataSource)
+        {
+            _connectionString = @$"Data Source={dataSource};Initial Catalog=Films;Integrated Security=True";
+            _sqlConnection = new SqlConnection(_connectionString);
+        }
+
+        public static bool TestConnection()
+        {
+            try
+            {
+                OpenConnection();
+                CloseConnection();
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
+        public static void OpenConnection()
         {
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                 _sqlConnection.Open();
         }
 
-        public void CloseConnection()
+        public static void CloseConnection()
         {
             if (_sqlConnection.State == System.Data.ConnectionState.Open)
                 _sqlConnection.Close();

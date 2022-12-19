@@ -21,5 +21,8 @@ namespace FilmsUI
         {
             RegistrationPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
         }
+
+        private void Registration_FormClosing(object sender, FormClosingEventArgs e) 
+            => Application.Exit();
     }
 }

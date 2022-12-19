@@ -158,6 +158,8 @@
             this.FilmDataCarrierTextBox.PlaceholderText = "ID Носитель информации";
             this.FilmDataCarrierTextBox.Size = new System.Drawing.Size(222, 27);
             this.FilmDataCarrierTextBox.TabIndex = 10;
+            this.FilmDataCarrierTextBox.TextChanged += new System.EventHandler(this.FilmDataCarrierTextBox_TextChanged);
+            this.FilmDataCarrierTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmTitleTextBox
             // 
@@ -185,6 +187,7 @@
             this.FilmYearTextBox.PlaceholderText = "Год выпуска";
             this.FilmYearTextBox.Size = new System.Drawing.Size(222, 27);
             this.FilmYearTextBox.TabIndex = 3;
+            this.FilmYearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmDurationTextBox
             // 
@@ -194,6 +197,7 @@
             this.FilmDurationTextBox.PlaceholderText = "Длительность в минутах";
             this.FilmDurationTextBox.Size = new System.Drawing.Size(222, 27);
             this.FilmDurationTextBox.TabIndex = 9;
+            this.FilmDurationTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmProducerTextBox
             // 
@@ -432,6 +436,7 @@
             this.FindOrDeleteTextBox.PlaceholderText = "ID";
             this.FindOrDeleteTextBox.Size = new System.Drawing.Size(151, 27);
             this.FindOrDeleteTextBox.TabIndex = 11;
+            this.FindOrDeleteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FindOrDeleteResultDGV
             // 
@@ -452,6 +457,7 @@
             this.Controls.Add(this.DGVTabControl);
             this.Name = "MainForm";
             this.Text = "Форма заполнения";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainDGV)).EndInit();
             this.DGVTabControl.ResumeLayout(false);
