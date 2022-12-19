@@ -31,7 +31,6 @@
             this.MainDGV = new System.Windows.Forms.DataGridView();
             this.DGVTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.FilmsTabLabel = new System.Windows.Forms.Label();
             this.FilmInsertButton = new System.Windows.Forms.Button();
             this.FilmDataCarrierTextBox = new System.Windows.Forms.TextBox();
             this.FilmTitleTextBox = new System.Windows.Forms.TextBox();
@@ -44,6 +43,10 @@
             this.FilmCountryTextBox = new System.Windows.Forms.TextBox();
             this.FilmStudioTextBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ActorInsertButton = new System.Windows.Forms.Button();
+            this.ActorRoleTextBox = new System.Windows.Forms.TextBox();
+            this.ActorPersonIdTextBox = new System.Windows.Forms.TextBox();
+            this.ActorFilmIdTextBox = new System.Windows.Forms.TextBox();
             this.ActorsDGV = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.AuthorsDGV = new System.Windows.Forms.DataGridView();
@@ -89,7 +92,6 @@
             this.MainDGV.RowTemplate.Height = 29;
             this.MainDGV.Size = new System.Drawing.Size(748, 826);
             this.MainDGV.TabIndex = 0;
-            this.MainDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // DGVTabControl
             // 
@@ -108,7 +110,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.FilmsTabLabel);
             this.tabPage1.Controls.Add(this.FilmInsertButton);
             this.tabPage1.Controls.Add(this.FilmDataCarrierTextBox);
             this.tabPage1.Controls.Add(this.MainDGV);
@@ -129,15 +130,6 @@
             this.tabPage1.Text = "Фильмы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // FilmsTabLabel
-            // 
-            this.FilmsTabLabel.AutoSize = true;
-            this.FilmsTabLabel.Location = new System.Drawing.Point(760, 715);
-            this.FilmsTabLabel.Name = "FilmsTabLabel";
-            this.FilmsTabLabel.Size = new System.Drawing.Size(91, 20);
-            this.FilmsTabLabel.TabIndex = 16;
-            this.FilmsTabLabel.Text = "ошибок нет";
-            // 
             // FilmInsertButton
             // 
             this.FilmInsertButton.BackColor = System.Drawing.Color.Green;
@@ -153,73 +145,72 @@
             // 
             // FilmDataCarrierTextBox
             // 
-            this.FilmDataCarrierTextBox.Location = new System.Drawing.Point(760, 511);
+            this.FilmDataCarrierTextBox.Location = new System.Drawing.Point(760, 271);
             this.FilmDataCarrierTextBox.Name = "FilmDataCarrierTextBox";
             this.FilmDataCarrierTextBox.PlaceholderText = "ID Носитель информации";
-            this.FilmDataCarrierTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmDataCarrierTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmDataCarrierTextBox.TabIndex = 10;
-            this.FilmDataCarrierTextBox.TextChanged += new System.EventHandler(this.FilmDataCarrierTextBox_TextChanged);
             this.FilmDataCarrierTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmTitleTextBox
             // 
-            this.FilmTitleTextBox.Location = new System.Drawing.Point(760, 247);
+            this.FilmTitleTextBox.Location = new System.Drawing.Point(760, 7);
             this.FilmTitleTextBox.MaxLength = 30;
             this.FilmTitleTextBox.Name = "FilmTitleTextBox";
             this.FilmTitleTextBox.PlaceholderText = "Название";
-            this.FilmTitleTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmTitleTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmTitleTextBox.TabIndex = 1;
             // 
             // FilmGenreTextBox
             // 
-            this.FilmGenreTextBox.Location = new System.Drawing.Point(760, 379);
+            this.FilmGenreTextBox.Location = new System.Drawing.Point(760, 139);
             this.FilmGenreTextBox.MaxLength = 20;
             this.FilmGenreTextBox.Name = "FilmGenreTextBox";
             this.FilmGenreTextBox.PlaceholderText = "Жанр";
-            this.FilmGenreTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmGenreTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmGenreTextBox.TabIndex = 5;
             // 
             // FilmYearTextBox
             // 
-            this.FilmYearTextBox.Location = new System.Drawing.Point(760, 313);
+            this.FilmYearTextBox.Location = new System.Drawing.Point(760, 73);
             this.FilmYearTextBox.MaxLength = 4;
             this.FilmYearTextBox.Name = "FilmYearTextBox";
             this.FilmYearTextBox.PlaceholderText = "Год выпуска";
-            this.FilmYearTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmYearTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmYearTextBox.TabIndex = 3;
             this.FilmYearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmDurationTextBox
             // 
-            this.FilmDurationTextBox.Location = new System.Drawing.Point(760, 478);
+            this.FilmDurationTextBox.Location = new System.Drawing.Point(760, 238);
             this.FilmDurationTextBox.MaxLength = 3;
             this.FilmDurationTextBox.Name = "FilmDurationTextBox";
             this.FilmDurationTextBox.PlaceholderText = "Длительность в минутах";
-            this.FilmDurationTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmDurationTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmDurationTextBox.TabIndex = 9;
             this.FilmDurationTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // FilmProducerTextBox
             // 
-            this.FilmProducerTextBox.Location = new System.Drawing.Point(760, 445);
+            this.FilmProducerTextBox.Location = new System.Drawing.Point(760, 205);
             this.FilmProducerTextBox.MaxLength = 50;
             this.FilmProducerTextBox.Name = "FilmProducerTextBox";
             this.FilmProducerTextBox.PlaceholderText = "Продюссер";
-            this.FilmProducerTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmProducerTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmProducerTextBox.TabIndex = 7;
             // 
             // FilmSubgenreTextBox
             // 
-            this.FilmSubgenreTextBox.Location = new System.Drawing.Point(760, 412);
+            this.FilmSubgenreTextBox.Location = new System.Drawing.Point(760, 172);
             this.FilmSubgenreTextBox.MaxLength = 20;
             this.FilmSubgenreTextBox.Name = "FilmSubgenreTextBox";
             this.FilmSubgenreTextBox.PlaceholderText = "Поджанр";
-            this.FilmSubgenreTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmSubgenreTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmSubgenreTextBox.TabIndex = 6;
             // 
             // FilmSummaryTextBox
             // 
-            this.FilmSummaryTextBox.Location = new System.Drawing.Point(760, 544);
+            this.FilmSummaryTextBox.Location = new System.Drawing.Point(760, 304);
             this.FilmSummaryTextBox.MaxLength = 300;
             this.FilmSummaryTextBox.Multiline = true;
             this.FilmSummaryTextBox.Name = "FilmSummaryTextBox";
@@ -229,24 +220,28 @@
             // 
             // FilmCountryTextBox
             // 
-            this.FilmCountryTextBox.Location = new System.Drawing.Point(760, 280);
+            this.FilmCountryTextBox.Location = new System.Drawing.Point(760, 40);
             this.FilmCountryTextBox.MaxLength = 30;
             this.FilmCountryTextBox.Name = "FilmCountryTextBox";
             this.FilmCountryTextBox.PlaceholderText = "Страна производитель";
-            this.FilmCountryTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmCountryTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmCountryTextBox.TabIndex = 2;
             // 
             // FilmStudioTextBox
             // 
-            this.FilmStudioTextBox.Location = new System.Drawing.Point(760, 346);
+            this.FilmStudioTextBox.Location = new System.Drawing.Point(760, 106);
             this.FilmStudioTextBox.MaxLength = 50;
             this.FilmStudioTextBox.Name = "FilmStudioTextBox";
             this.FilmStudioTextBox.PlaceholderText = "Студия";
-            this.FilmStudioTextBox.Size = new System.Drawing.Size(222, 27);
+            this.FilmStudioTextBox.Size = new System.Drawing.Size(392, 27);
             this.FilmStudioTextBox.TabIndex = 4;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ActorInsertButton);
+            this.tabPage2.Controls.Add(this.ActorRoleTextBox);
+            this.tabPage2.Controls.Add(this.ActorPersonIdTextBox);
+            this.tabPage2.Controls.Add(this.ActorFilmIdTextBox);
             this.tabPage2.Controls.Add(this.ActorsDGV);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
@@ -255,6 +250,46 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Актёры";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ActorInsertButton
+            // 
+            this.ActorInsertButton.BackColor = System.Drawing.Color.Green;
+            this.ActorInsertButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ActorInsertButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ActorInsertButton.Location = new System.Drawing.Point(760, 758);
+            this.ActorInsertButton.Name = "ActorInsertButton";
+            this.ActorInsertButton.Size = new System.Drawing.Size(392, 75);
+            this.ActorInsertButton.TabIndex = 12;
+            this.ActorInsertButton.Text = "Вставить";
+            this.ActorInsertButton.UseVisualStyleBackColor = false;
+            this.ActorInsertButton.Click += new System.EventHandler(this.ActorInsertButton_Click);
+            // 
+            // ActorRoleTextBox
+            // 
+            this.ActorRoleTextBox.Location = new System.Drawing.Point(760, 73);
+            this.ActorRoleTextBox.MaxLength = 40;
+            this.ActorRoleTextBox.Name = "ActorRoleTextBox";
+            this.ActorRoleTextBox.PlaceholderText = "Роль (ФИО, кличка и т.п.)";
+            this.ActorRoleTextBox.Size = new System.Drawing.Size(395, 27);
+            this.ActorRoleTextBox.TabIndex = 4;
+            // 
+            // ActorPersonIdTextBox
+            // 
+            this.ActorPersonIdTextBox.Location = new System.Drawing.Point(760, 40);
+            this.ActorPersonIdTextBox.Name = "ActorPersonIdTextBox";
+            this.ActorPersonIdTextBox.PlaceholderText = "ID человека";
+            this.ActorPersonIdTextBox.Size = new System.Drawing.Size(395, 27);
+            this.ActorPersonIdTextBox.TabIndex = 3;
+            this.ActorPersonIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
+            // 
+            // ActorFilmIdTextBox
+            // 
+            this.ActorFilmIdTextBox.Location = new System.Drawing.Point(760, 7);
+            this.ActorFilmIdTextBox.Name = "ActorFilmIdTextBox";
+            this.ActorFilmIdTextBox.PlaceholderText = "ID фильма";
+            this.ActorFilmIdTextBox.Size = new System.Drawing.Size(395, 27);
+            this.ActorFilmIdTextBox.TabIndex = 2;
+            this.ActorFilmIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
             // 
             // ActorsDGV
             // 
@@ -464,6 +499,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorsDGV)).EndInit();
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AuthorsDGV)).EndInit();
@@ -514,8 +550,11 @@
         private Button FindByIdButton;
         private ComboBox FindOrDeleteComboBox;
         private TextBox FindOrDeleteTextBox;
-        private Label FilmsTabLabel;
         private Button FilmInsertButton;
         private Label FindOrDeleteCurrentTableLabel;
+        private TextBox ActorPersonIdTextBox;
+        private TextBox ActorFilmIdTextBox;
+        private Button ActorInsertButton;
+        private TextBox ActorRoleTextBox;
     }
 }

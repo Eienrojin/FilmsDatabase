@@ -16,6 +16,16 @@ namespace FilmsUI
     {
         private static UserRoles _currentUser;
 
+        struct Table
+        {
+            public const string film = "Film";
+            public const string actor = "Actors";
+            public const string author = "Authors";
+            public const string person = "Person";
+            public const string dataCarrier = "DataCarrier";
+            public const string register = "Register";
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -38,7 +48,7 @@ namespace FilmsUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string[] tables = { "Film", "Actors", "Authors", "Person", "DataCarrier", "Register" };
+            string[] tables = { Table.film, Table.actor, Table.author, Table.person, Table.dataCarrier, Table.register };
             DataGridView[]? DGVs = InitDGVArray();
             DataTable[] dataTables = new DataTable[DGVs.Length];
 
@@ -55,7 +65,7 @@ namespace FilmsUI
             Database._sqlConnection.Close();
         }
 
-        private void UpdateDGV(DataGridView dgv, string table)
+        private static void UpdateDGV(DataGridView dgv, string table)
         {
             var dataTables = new DataTable();
 
@@ -94,22 +104,37 @@ namespace FilmsUI
 
             if (isCorrect)
             {
-                UpdateDGV(MainDGV, "Film");
+                UpdateDGV(MainDGV, Table.film);
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ActorInsertButton_Click(object sender, EventArgs e)
         {
+            var adapter = new ActorsTableAdapter();
+            var isCorrect = true;
 
+            try
+            {
+                adapter.Insert(int.Parse(ActorFilmIdTextBox.Text), int.Parse(ActorPersonIdTextBox.Text), ActorRoleTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Данные введены неправильно");
+                isCorrect = false;
+            }
+
+            if (isCorrect)
+            {
+                UpdateDGV(ActorsDGV, Table.actor);
+            }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();
 
         private void FilmYearTextBox_KeyPress(object sender, KeyPressEventArgs e) => EnterOnlyDigits(e);
 
-        private void EnterOnlyDigits(KeyPressEventArgs e) => e.Handled = !Char.IsDigit(e.KeyChar);
+        private static void EnterOnlyDigits(KeyPressEventArgs e) => e.Handled = !Char.IsDigit(e.KeyChar);
 
-        private void FilmDataCarrierTextBox_TextChanged(object sender, EventArgs e) { }
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();
     }
 
     public enum UserRoles
