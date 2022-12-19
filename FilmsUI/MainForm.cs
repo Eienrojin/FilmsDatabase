@@ -103,11 +103,9 @@ namespace FilmsUI
             }
 
             if (isCorrect)
-            {
                 UpdateDGV(MainDGV, Table.film);
-            }
-        }
 
+        }
         private void ActorInsertButton_Click(object sender, EventArgs e)
         {
             var adapter = new ActorsTableAdapter();
@@ -124,17 +122,88 @@ namespace FilmsUI
             }
 
             if (isCorrect)
-            {
                 UpdateDGV(ActorsDGV, Table.actor);
+        }
+        private void AuthorsInsertButton_Click(object sender, EventArgs e)
+        {
+            var adapter = new AuthorsTableAdapter();
+            var isCorrect = true;
+
+            try
+            {
+                adapter.Insert(int.Parse(AuthorFilmIdTextBox.Text), int.Parse(AuthorPersonIdTextBox.Text));
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Данные введены неправильно");
+                isCorrect = false;
+            }
+
+            if (isCorrect)
+                UpdateDGV(AuthorsDGV, Table.author);
+        }
+        private void PersonInsertButton_Click(object sender, EventArgs e)
+        {
+            var adapter = new PersonTableAdapter();
+            var isCorrect = true;
+
+            try
+            {
+                adapter.Insert(PersonNameTextBox.Text, PersonSurnameTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Данные введены неправильно");
+                isCorrect = false;
+            }
+
+            if (isCorrect)
+                UpdateDGV(AuthorsDGV, Table.author);
+        }
+        private void DataCarrierInsertButton_Click(object sender, EventArgs e)
+        {
+            var adapter = new DataCarrierTableAdapter();
+            var isCorrect = true;
+
+            try
+            {
+                adapter.Insert(DataCarrierNameTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Данные введены неправильно");
+                isCorrect = false;
+            }
+
+            if (isCorrect)
+                UpdateDGV(DataCarrierDGV, Table.dataCarrier);
+        }
+        private void RegisterInsertButton_Click(object sender, EventArgs e)
+        {
+            var adapter = new RegisterTableAdapter();
+            var isCorrect = true;
+
+            try
+            {
+                adapter.Insert(UserLoginTextBox.Text, UserPasswordTextBox.Text, int.Parse(UserRoleTextBox.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Данные введены неправильно");
+                isCorrect = false;
+            }
+
+            if (isCorrect)
+                UpdateDGV(DataCarrierDGV, Table.register);
         }
 
 
         private void FilmYearTextBox_KeyPress(object sender, KeyPressEventArgs e) => EnterOnlyDigits(e);
 
-        private static void EnterOnlyDigits(KeyPressEventArgs e) => e.Handled = !Char.IsDigit(e.KeyChar);
+        private static void EnterOnlyDigits(KeyPressEventArgs e) => e.Handled = !Char.IsDigit(e.KeyChar) || e.KeyChar == (char)8;
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();
+
     }
 
     public enum UserRoles

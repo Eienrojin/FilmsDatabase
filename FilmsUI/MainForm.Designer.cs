@@ -49,12 +49,25 @@
             this.ActorFilmIdTextBox = new System.Windows.Forms.TextBox();
             this.ActorsDGV = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.AuthorPersonIdTextBox = new System.Windows.Forms.TextBox();
+            this.AuthorFilmIdTextBox = new System.Windows.Forms.TextBox();
+            this.AuthorsInsertButton = new System.Windows.Forms.Button();
             this.AuthorsDGV = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.PersonSurnameTextBox = new System.Windows.Forms.TextBox();
+            this.PersonNameTextBox = new System.Windows.Forms.TextBox();
+            this.PersonInsertButton = new System.Windows.Forms.Button();
             this.PersonDGV = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.DataCarrierNameTextBox = new System.Windows.Forms.TextBox();
+            this.DataCarrierInsertButton = new System.Windows.Forms.Button();
             this.DataCarrierDGV = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.RoleExplainLabel = new System.Windows.Forms.Label();
+            this.UserRoleTextBox = new System.Windows.Forms.TextBox();
+            this.UserPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.UserLoginTextBox = new System.Windows.Forms.TextBox();
+            this.RegisterInsertButton = new System.Windows.Forms.Button();
             this.UsersDGV = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FindOrDeleteTab = new System.Windows.Forms.TabPage();
@@ -303,6 +316,9 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.AuthorPersonIdTextBox);
+            this.tabPage7.Controls.Add(this.AuthorFilmIdTextBox);
+            this.tabPage7.Controls.Add(this.AuthorsInsertButton);
             this.tabPage7.Controls.Add(this.AuthorsDGV);
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
             this.tabPage7.Name = "tabPage7";
@@ -310,6 +326,37 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Авторы сценария";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // AuthorPersonIdTextBox
+            // 
+            this.AuthorPersonIdTextBox.Location = new System.Drawing.Point(757, 39);
+            this.AuthorPersonIdTextBox.Name = "AuthorPersonIdTextBox";
+            this.AuthorPersonIdTextBox.PlaceholderText = "ID человека";
+            this.AuthorPersonIdTextBox.Size = new System.Drawing.Size(395, 27);
+            this.AuthorPersonIdTextBox.TabIndex = 15;
+            this.AuthorPersonIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
+            // 
+            // AuthorFilmIdTextBox
+            // 
+            this.AuthorFilmIdTextBox.Location = new System.Drawing.Point(757, 6);
+            this.AuthorFilmIdTextBox.Name = "AuthorFilmIdTextBox";
+            this.AuthorFilmIdTextBox.PlaceholderText = "ID фильма";
+            this.AuthorFilmIdTextBox.Size = new System.Drawing.Size(395, 27);
+            this.AuthorFilmIdTextBox.TabIndex = 14;
+            this.AuthorFilmIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
+            // 
+            // AuthorsInsertButton
+            // 
+            this.AuthorsInsertButton.BackColor = System.Drawing.Color.Green;
+            this.AuthorsInsertButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AuthorsInsertButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AuthorsInsertButton.Location = new System.Drawing.Point(760, 757);
+            this.AuthorsInsertButton.Name = "AuthorsInsertButton";
+            this.AuthorsInsertButton.Size = new System.Drawing.Size(392, 75);
+            this.AuthorsInsertButton.TabIndex = 13;
+            this.AuthorsInsertButton.Text = "Вставить";
+            this.AuthorsInsertButton.UseVisualStyleBackColor = false;
+            this.AuthorsInsertButton.Click += new System.EventHandler(this.AuthorsInsertButton_Click);
             // 
             // AuthorsDGV
             // 
@@ -323,6 +370,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.PersonSurnameTextBox);
+            this.tabPage4.Controls.Add(this.PersonNameTextBox);
+            this.tabPage4.Controls.Add(this.PersonInsertButton);
             this.tabPage4.Controls.Add(this.PersonDGV);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
@@ -330,6 +380,37 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Люди";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // PersonSurnameTextBox
+            // 
+            this.PersonSurnameTextBox.Location = new System.Drawing.Point(757, 39);
+            this.PersonSurnameTextBox.MaxLength = 15;
+            this.PersonSurnameTextBox.Name = "PersonSurnameTextBox";
+            this.PersonSurnameTextBox.PlaceholderText = "Фамилия";
+            this.PersonSurnameTextBox.Size = new System.Drawing.Size(395, 27);
+            this.PersonSurnameTextBox.TabIndex = 17;
+            // 
+            // PersonNameTextBox
+            // 
+            this.PersonNameTextBox.Location = new System.Drawing.Point(757, 6);
+            this.PersonNameTextBox.MaxLength = 15;
+            this.PersonNameTextBox.Name = "PersonNameTextBox";
+            this.PersonNameTextBox.PlaceholderText = "Имя";
+            this.PersonNameTextBox.Size = new System.Drawing.Size(395, 27);
+            this.PersonNameTextBox.TabIndex = 16;
+            // 
+            // PersonInsertButton
+            // 
+            this.PersonInsertButton.BackColor = System.Drawing.Color.Green;
+            this.PersonInsertButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PersonInsertButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PersonInsertButton.Location = new System.Drawing.Point(760, 757);
+            this.PersonInsertButton.Name = "PersonInsertButton";
+            this.PersonInsertButton.Size = new System.Drawing.Size(392, 75);
+            this.PersonInsertButton.TabIndex = 14;
+            this.PersonInsertButton.Text = "Вставить";
+            this.PersonInsertButton.UseVisualStyleBackColor = false;
+            this.PersonInsertButton.Click += new System.EventHandler(this.PersonInsertButton_Click);
             // 
             // PersonDGV
             // 
@@ -343,6 +424,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.DataCarrierNameTextBox);
+            this.tabPage5.Controls.Add(this.DataCarrierInsertButton);
             this.tabPage5.Controls.Add(this.DataCarrierDGV);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
@@ -350,6 +433,28 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Вид носителя";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // DataCarrierNameTextBox
+            // 
+            this.DataCarrierNameTextBox.Location = new System.Drawing.Point(757, 7);
+            this.DataCarrierNameTextBox.MaxLength = 15;
+            this.DataCarrierNameTextBox.Name = "DataCarrierNameTextBox";
+            this.DataCarrierNameTextBox.PlaceholderText = "Имя";
+            this.DataCarrierNameTextBox.Size = new System.Drawing.Size(395, 27);
+            this.DataCarrierNameTextBox.TabIndex = 17;
+            // 
+            // DataCarrierInsertButton
+            // 
+            this.DataCarrierInsertButton.BackColor = System.Drawing.Color.Green;
+            this.DataCarrierInsertButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataCarrierInsertButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DataCarrierInsertButton.Location = new System.Drawing.Point(760, 757);
+            this.DataCarrierInsertButton.Name = "DataCarrierInsertButton";
+            this.DataCarrierInsertButton.Size = new System.Drawing.Size(392, 75);
+            this.DataCarrierInsertButton.TabIndex = 15;
+            this.DataCarrierInsertButton.Text = "Вставить";
+            this.DataCarrierInsertButton.UseVisualStyleBackColor = false;
+            this.DataCarrierInsertButton.Click += new System.EventHandler(this.DataCarrierInsertButton_Click);
             // 
             // DataCarrierDGV
             // 
@@ -363,6 +468,11 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.RoleExplainLabel);
+            this.tabPage6.Controls.Add(this.UserRoleTextBox);
+            this.tabPage6.Controls.Add(this.UserPasswordTextBox);
+            this.tabPage6.Controls.Add(this.UserLoginTextBox);
+            this.tabPage6.Controls.Add(this.RegisterInsertButton);
             this.tabPage6.Controls.Add(this.UsersDGV);
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
@@ -370,6 +480,56 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Пользователи";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // RoleExplainLabel
+            // 
+            this.RoleExplainLabel.AutoSize = true;
+            this.RoleExplainLabel.Location = new System.Drawing.Point(757, 109);
+            this.RoleExplainLabel.Name = "RoleExplainLabel";
+            this.RoleExplainLabel.Size = new System.Drawing.Size(134, 60);
+            this.RoleExplainLabel.TabIndex = 20;
+            this.RoleExplainLabel.Text = "1. Администратор\r\n2. Читатель\r\n3. Редактор\r\n";
+            // 
+            // UserRoleTextBox
+            // 
+            this.UserRoleTextBox.Location = new System.Drawing.Point(757, 72);
+            this.UserRoleTextBox.MaxLength = 40;
+            this.UserRoleTextBox.Name = "UserRoleTextBox";
+            this.UserRoleTextBox.PlaceholderText = "ID Роль";
+            this.UserRoleTextBox.Size = new System.Drawing.Size(395, 27);
+            this.UserRoleTextBox.TabIndex = 19;
+            this.UserRoleTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilmYearTextBox_KeyPress);
+            // 
+            // UserPasswordTextBox
+            // 
+            this.UserPasswordTextBox.Location = new System.Drawing.Point(757, 39);
+            this.UserPasswordTextBox.MaxLength = 30;
+            this.UserPasswordTextBox.Name = "UserPasswordTextBox";
+            this.UserPasswordTextBox.PlaceholderText = "Пароль";
+            this.UserPasswordTextBox.Size = new System.Drawing.Size(395, 27);
+            this.UserPasswordTextBox.TabIndex = 18;
+            // 
+            // UserLoginTextBox
+            // 
+            this.UserLoginTextBox.Location = new System.Drawing.Point(757, 6);
+            this.UserLoginTextBox.MaxLength = 30;
+            this.UserLoginTextBox.Name = "UserLoginTextBox";
+            this.UserLoginTextBox.PlaceholderText = "Логин";
+            this.UserLoginTextBox.Size = new System.Drawing.Size(395, 27);
+            this.UserLoginTextBox.TabIndex = 17;
+            // 
+            // RegisterInsertButton
+            // 
+            this.RegisterInsertButton.BackColor = System.Drawing.Color.Green;
+            this.RegisterInsertButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RegisterInsertButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegisterInsertButton.Location = new System.Drawing.Point(760, 757);
+            this.RegisterInsertButton.Name = "RegisterInsertButton";
+            this.RegisterInsertButton.Size = new System.Drawing.Size(392, 75);
+            this.RegisterInsertButton.TabIndex = 16;
+            this.RegisterInsertButton.Text = "Вставить";
+            this.RegisterInsertButton.UseVisualStyleBackColor = false;
+            this.RegisterInsertButton.Click += new System.EventHandler(this.RegisterInsertButton_Click);
             // 
             // UsersDGV
             // 
@@ -502,12 +662,16 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorsDGV)).EndInit();
             this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AuthorsDGV)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PersonDGV)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataCarrierDGV)).EndInit();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UsersDGV)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.FindOrDeleteTab.ResumeLayout(false);
@@ -556,5 +720,18 @@
         private TextBox ActorFilmIdTextBox;
         private Button ActorInsertButton;
         private TextBox ActorRoleTextBox;
+        private TextBox AuthorPersonIdTextBox;
+        private TextBox AuthorFilmIdTextBox;
+        private Button AuthorsInsertButton;
+        private TextBox PersonSurnameTextBox;
+        private TextBox PersonNameTextBox;
+        private Button PersonInsertButton;
+        private TextBox DataCarrierNameTextBox;
+        private Button DataCarrierInsertButton;
+        private Label RoleExplainLabel;
+        private TextBox UserRoleTextBox;
+        private TextBox UserPasswordTextBox;
+        private TextBox UserLoginTextBox;
+        private Button RegisterInsertButton;
     }
 }
