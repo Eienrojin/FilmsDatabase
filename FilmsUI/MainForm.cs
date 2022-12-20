@@ -30,6 +30,18 @@ namespace FilmsUI
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            FillFindOrDeleteComboBox();
+        }
+
+        private void FillFindOrDeleteComboBox()
+        {
+            FindOrDeleteComboBox.Items.Clear();
+            FindOrDeleteComboBox.Items.Add(Table.film);
+            FindOrDeleteComboBox.Items.Add(Table.actor);
+            FindOrDeleteComboBox.Items.Add(Table.author);
+            FindOrDeleteComboBox.Items.Add(Table.person);
+            FindOrDeleteComboBox.Items.Add(Table.dataCarrier);
+            FindOrDeleteComboBox.Items.Add(Table.register);
         }
 
         private DataGridView[] InitDGVArray()
@@ -197,13 +209,86 @@ namespace FilmsUI
                 UpdateDGV(DataCarrierDGV, Table.register);
         }
 
-
         private void FilmYearTextBox_KeyPress(object sender, KeyPressEventArgs e) => EnterOnlyDigits(e);
 
         private static void EnterOnlyDigits(KeyPressEventArgs e) => e.Handled = !Char.IsDigit(e.KeyChar) || e.KeyChar == (char)8;
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();
 
+        private void FindByIdButton_Click(object sender, EventArgs e)
+        {
+            int findId = int.Parse(FindOrDeleteTextBox.Text);
+
+            Database._sqlConnection.Open();
+
+            switch (FindOrDeleteComboBox.Text)
+            {
+                case Table.film:
+                    FindOrDeleteResultDGV.DataSource = new FilmTableAdapter().FindById(findId);
+                    break;
+                case Table.author:
+                    FindOrDeleteResultDGV.DataSource = new AuthorsTableAdapter().FindById(findId);
+                    break;
+                case Table.person:
+                    FindOrDeleteResultDGV.DataSource = new PersonTableAdapter().FindById(findId);
+                    break;
+                case Table.actor:
+                    FindOrDeleteResultDGV.DataSource = new ActorsTableAdapter().FindById(findId);
+                    break;
+                case Table.dataCarrier:
+                    FindOrDeleteResultDGV.DataSource = new DataCarrierTableAdapter().FindById(findId);
+                    break;
+                case Table.register:
+                    FindOrDeleteResultDGV.DataSource = new RegisterTableAdapter().FindById(findId);
+                    break;
+                default:
+                    MessageBox.Show("Ошибка в выборе таблицы!");
+                    Database._sqlConnection.Close();
+                    return;
+            }
+
+            MessageBox.Show("Ведется поиск...");
+            Database._sqlConnection.Close();
+        }
+
+        private void DeleteByIdButton_Click(object sender, EventArgs e)
+        {
+            int findId = int.Parse(FindOrDeleteTextBox.Text);
+
+            switch (FindOrDeleteComboBox.Text)
+            {
+                case Table.film:
+                    new FilmTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(MainDGV, Table.film);
+                    break;
+                case Table.author:
+                    new AuthorsTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(AuthorsDGV, Table.author);
+                    break;
+                case Table.person:
+                    new PersonTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(PersonDGV, Table.person);
+                    break;
+                case Table.actor:
+                    new ActorsTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(ActorsDGV, Table.actor);
+                    break;
+                case Table.dataCarrier:
+                    new DataCarrierTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(DataCarrierDGV, Table.dataCarrier);
+                    break;
+                case Table.register:
+                    new RegisterTableAdapter().DeleteQuery(findId);
+                    UpdateDGV(UsersDGV, Table.register);
+                    break;
+                default:
+                    MessageBox.Show("Ошибка в выборе таблицы!");
+                    Database._sqlConnection.Close();
+                    return;
+            }
+
+            MessageBox.Show("Успешно удалено!");
+        }
     }
 
     public enum UserRoles

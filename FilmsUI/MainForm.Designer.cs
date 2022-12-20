@@ -72,7 +72,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FindOrDeleteTab = new System.Windows.Forms.TabPage();
             this.FindOrDeleteCurrentTableLabel = new System.Windows.Forms.Label();
-            this.FindOrDeleteLabel = new System.Windows.Forms.Label();
             this.DeleteByIdButton = new System.Windows.Forms.Button();
             this.FindByIdButton = new System.Windows.Forms.Button();
             this.FindOrDeleteComboBox = new System.Windows.Forms.ComboBox();
@@ -554,7 +553,6 @@
             // FindOrDeleteTab
             // 
             this.FindOrDeleteTab.Controls.Add(this.FindOrDeleteCurrentTableLabel);
-            this.FindOrDeleteTab.Controls.Add(this.FindOrDeleteLabel);
             this.FindOrDeleteTab.Controls.Add(this.DeleteByIdButton);
             this.FindOrDeleteTab.Controls.Add(this.FindByIdButton);
             this.FindOrDeleteTab.Controls.Add(this.FindOrDeleteComboBox);
@@ -577,15 +575,6 @@
             this.FindOrDeleteCurrentTableLabel.TabIndex = 16;
             this.FindOrDeleteCurrentTableLabel.Text = "- текущая таблица";
             // 
-            // FindOrDeleteLabel
-            // 
-            this.FindOrDeleteLabel.AutoSize = true;
-            this.FindOrDeleteLabel.Location = new System.Drawing.Point(163, 144);
-            this.FindOrDeleteLabel.Name = "FindOrDeleteLabel";
-            this.FindOrDeleteLabel.Size = new System.Drawing.Size(91, 20);
-            this.FindOrDeleteLabel.TabIndex = 15;
-            this.FindOrDeleteLabel.Text = "ошибок нет";
-            // 
             // DeleteByIdButton
             // 
             this.DeleteByIdButton.BackColor = System.Drawing.Color.Firebrick;
@@ -596,6 +585,7 @@
             this.DeleteByIdButton.TabIndex = 14;
             this.DeleteByIdButton.Text = "Удалить";
             this.DeleteByIdButton.UseVisualStyleBackColor = false;
+            this.DeleteByIdButton.Click += new System.EventHandler(this.DeleteByIdButton_Click);
             // 
             // FindByIdButton
             // 
@@ -607,6 +597,7 @@
             this.FindByIdButton.TabIndex = 13;
             this.FindByIdButton.Text = "Найти";
             this.FindByIdButton.UseVisualStyleBackColor = false;
+            this.FindByIdButton.Click += new System.EventHandler(this.FindByIdButton_Click);
             // 
             // FindOrDeleteComboBox
             // 
@@ -709,7 +700,6 @@
         private TabControl tabControl1;
         private TabPage FindOrDeleteTab;
         private DataGridView FindOrDeleteResultDGV;
-        private Label FindOrDeleteLabel;
         private Button DeleteByIdButton;
         private Button FindByIdButton;
         private ComboBox FindOrDeleteComboBox;
